@@ -1,0 +1,168 @@
+services:
+
+  mysql-server:
+    image: mysql:8.0.40
+    container_name: zabbix-mysql
+    hostname: zabbix-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: zabbix
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+    command: --log-bin-trust-function-creators=1
+    volumes:
+
+      - ./mysql_data:/var/lib/mysql
+
+    networks:
+      rede-cida:
+        ipv4_address: 172.30.0.10
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:alpine-7.4.5
+    container_name: zabbix-server
+    hostname: zabbix-server
+    restart: unless-stopped
+    environment:
+      DB_SERVER_HOST: zabbix-mysql
+      DB_SERVER_ROOT_PASSWORD: zabbix
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+
+    ports:
+      - "10051:10051"
+
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+
+    volumes:
+      - zabbix_alertscripts:/usr/lib/zabbix/alertscripts
+      - zabbix_export:/var/lib/zabbix/export
+
+    networks:
+      rede-cida:
+        ipv4_address: 172.30.0.20
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-mysql:alpine-7.4.5
+    container_name: zabbix-web
+    hostname: zabbix-web
+    restart: unless-stopped
+
+    environment:
+      DB_SERVER_HOST: zabbix-mysql
+      DB_SERVER_ROOT_PASSWORD: zabbix
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+      ZBX_SERVER_HOST: zabbix-server
+      PHP_TZ: America/Cuiaba
+
+    ports:
+      - "8080:8080"
+      - "9443:9443"
+
+    depends_on:
+      zabbix-server:
+        condition: service_started
+
+    networks:
+      rede-cida:
+        ipv4_address: 172.30.0.30
+
+  zabbix-agent2:
+    image: zabbix/zabbix-agent2:alpine-7.4.5
+    container_name: zabbix-agent2
+    hostname: Host
+    restart: unless-stopped
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: Host
+      ZBX_ACTIVE: zabbix-server
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    ports:
+      - "10050:10050"
+
+    depends_on:
+      - zabbix-server
+
+    networks:
+      rede-cida:
+        ipv4_address: 172.30.0.40
+
+  App1:
+    image: zabbix/zabbix-agent2:alpine-7.4.5
+    container_name: App1
+    restart: unless-stopped
+    hostname: App1
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: App1
+      ZBX_ACTIVE: zabbix-server
+
+    depends_on:
+      - zabbix-server
+
+    networks:
+      rede-cida:
+        ipv4_address: 172.30.0.50
+
+  App2:
+    image: zabbix/zabbix-agent2:alpine-7.4.5
+    container_name: App2
+    restart: unless-stopped
+    hostname: App2
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: App2
+      ZBX_ACTIVE: zabbix-server
+
+    depends_on:
+      - zabbix-server
+
+    networks:
+      rede-cida:
+        ipv4_address: 172.30.0.60
+
+  zabbix-server-agent:
+    image: zabbix/zabbix-agent2:alpine-7.4.5
+    container_name: zabbix-server-agent
+    hostname: ZabbixServer
+    restart: unless-stopped
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: ZabbixServer
+      ZBX_ACTIVE: zabbix-server
+
+    depends_on:
+      - zabbix-server
+
+    networks:
+      rede-cida:
+        ipv4_address: 172.30.0.70
+
+
+networks:
+  rede-cida:
+    driver: bridge
+
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+          gateway: 172.30.0.1
+
+volumes:
+  zabbix_alertscripts:
+  zabbix_export:
