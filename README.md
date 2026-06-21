@@ -65,7 +65,7 @@ docker ps
 
 # Primeiro Acesso a interface na Web
 
-http://localhost:8080 ou https://localhost:8443
+http://localhost:8080 ou https://localhost:9443
 
 ## Dados de Login Padrão do Zabbix:
 
@@ -137,7 +137,50 @@ App2 →	172.30.0.60
 
 zabbix-server-agent → 172.30.0.70
 
-<img width="2528" height="1684" alt="Gemini_Generated_Image_6i1v316i1v316i1v" src="https://github.com/user-attachments/assets/9e7b5a26-6c7a-42bb-a5f3-
- 2f5081989904" />
+<img width="2528" height="1684" alt="Mapa de instrutura" src="https://github.com/user-attachments/assets/4edc5aac-572e-4939-b97d-2d0b42711af5" />
 
+
+# Clonar o Repositório do GitHub
+
+git clone https://github.com/cyda1315-glitch/Monitoramento-Zabbix.git
+
+## Entre na pasta:
+cd zabbix-cida
+
+## Verificar os Arquivos do Projeto
+
+Confira se o arquivo docker-compose.yml está presente:
+ls
+
+### Deve aparecer:
+
+docker-compose.yml
+README.md
+
+## levantar os Containers
+
+Execute:
+
+docker compose up -d
+
+O Docker fará automaticamente:
+
+→ Download das imagens.
+→ Criação da rede rede-cida.
+→ Criação dos volumes.
+→ Inicialização dos containers.
+
+## Verificar os Containers
+
+docker ps
+
+Os seguintes containers devem aparecer:
+
+→ zabbix-mysql
+→ zabbix-server
+→ zabbix-web
+→ zabbix-agent2
+→ App1
+→ App2
+→ zabbix-server-agent
 
