@@ -138,6 +138,12 @@ App2 →	172.30.0.60
 zabbix-server-agent → 172.30.0.70
 
 
+<img width="2528" height="1684" alt="Gemini_Generated_Image_6i1v316i1v316i1v" src="https://github.com/user-attachments/assets/18a3e484-6dee-43b0-b4cf-df2d14abcd8b" />
+
+
+
+
+
 
 
 
