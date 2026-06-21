@@ -150,6 +150,7 @@ cd zabbix-cida
 ## Verificar os Arquivos do Projeto
 
 Confira se o arquivo docker-compose.yml está presente:
+
 ls
 
 ### Deve aparecer:
@@ -166,8 +167,11 @@ docker compose up -d
 O Docker fará automaticamente:
 
 → Download das imagens.
+
 → Criação da rede rede-cida.
+
 → Criação dos volumes.
+
 → Inicialização dos containers.
 
 ## Verificar os Containers
@@ -177,10 +181,16 @@ docker ps
 Os seguintes containers devem aparecer:
 
 → zabbix-mysql
+
 → zabbix-server
+
 → zabbix-web
+
 → zabbix-agent2
+
 → App1
+
 → App2
+
 → zabbix-server-agent
 
