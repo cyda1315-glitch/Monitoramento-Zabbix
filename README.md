@@ -29,12 +29,15 @@ Antes de rodar o projeto, o seu servidor ou máquina virtual com Ubuntu precisa 
 
 # Comandos para preparar o Ubuntu:
 ### Atualizar a lista de pacotes
+
 sudo apt update && sudo apt upgrade -y
 
 ### Instalar o Docker e o Docker Compose
+
 sudo apt install docker.io docker-compose-v2 git -y
 
 ### Adicionar seu usuário ao grupo do docker (para não precisar usar 'sudo' toda hora)
+
 sudo usermod -aG docker $USER
 
 ## ATENÇÃO: Após o comando acima, deslogue e logue novamente no Ubuntu para aplicar a mudança.
@@ -44,6 +47,7 @@ sudo usermod -aG docker $USER
 No terminal, crie uma pasta dedicada para organizar os arquivos e entre nela:
 
 mkdir -p ~/zabbix-cida
+
 cd ~/zabbix-cida
 
 # Criar o arquivo de configuração
@@ -64,34 +68,51 @@ docker ps
 http://localhost:8080 ou https://localhost:8443
 
 ## Dados de Login Padrão do Zabbix:
-Usuário padrão: Admin 
-Senha padrão: zabbix
 
+Usuário padrão: Admin 
+
+Senha padrão: zabbix
 
 # Cadastrar os Agentes
 
 ## Host name: Host (Deve ser idêntico ao ZBX_HOSTNAME do container)
+
 Modelos: Linux by Zabbix agent ou Docker by Zabbix agent 2
+
 Host groups: Linux servers 
+
 Interfaces (Agent):  → Endereço IP: 172.30.0.40  → Porta: 10050
 
 ## Cadastrando o Agente App1
+
 Nome do host: App1
+
 Modelos: Linux by Zabbix agent 
+
 Host groups: Linux servers
+
 Interfaces (Agent):  → Endereço IP: 172.30.0.50  → Porta: 10050
 
 ## Cadastrando o Agente App2
+
 Nome do host: App2
+
 Modelos: Linux by Zabbix agent
+
 Host groups: Linux servers
+
 Interfaces (Agent):  → Endereço IP: 172.30.0.60   → Porta: 10050
 
 ## Cadastrando o Agente do Próprio Servidor Zabbix
+
 Este agente monitora a própria saúde e métricas do container onde o Zabbix está processando os dados.
+
 Nome do host: ZabbixServer
+
 Modelos: Linux by Zabbix agent
+
 Host groups: Linux servers
+
 Interfaces (Agent):  → Endereço IP: 172.30.0.70   →  Porta: 10050
 
 
@@ -103,11 +124,17 @@ Interfaces (Agent):  → Endereço IP: 172.30.0.70   →  Porta: 10050
 ## Gateway (Roteador da Rede): 172.30.0.1
 
 zabbix-mysql → 172.30.0.10
+
 zabbix-server → 172.30.0.20
+
 zabbix-web →	172.30.0.30
+
 zabbix-agent2 →	172.30.0.40
+
 App1 →	172.30.0.50
+
 App2 →	172.30.0.60
+
 zabbix-server-agent → 172.30.0.70
 
 
