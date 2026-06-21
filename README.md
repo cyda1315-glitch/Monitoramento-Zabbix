@@ -21,7 +21,7 @@ Uma rede interna customizada (172.30.0.0/24) para que os containers se comunique
 # O Ubuntu precisa ter
 Antes de rodar o projeto, o seu servidor ou máquina virtual com Ubuntu precisa ter as seguintes ferramentas instaladas:
 
-### 1.Docker: O motor que roda os containers.
+### 1. Docker: O motor que roda os containers.
 
 ### 2. Docker Compose V2: O utilitário que lê o seu arquivo docker-compose.yml e monta a estrutura.
 
@@ -137,14 +137,7 @@ App2 →	172.30.0.60
 
 zabbix-server-agent → 172.30.0.70
 
-
-<img width="2528" height="1684" alt="Gemini_Generated_Image_6i1v316i1v316i1v" src="https://github.com/user-attachments/assets/18a3e484-6dee-43b0-b4cf-df2d14abcd8b" />
-
-
-
-
-
-
-
+<img width="2528" height="1684" alt="Gemini_Generated_Image_6i1v316i1v316i1v" src="https://github.com/user-attachments/assets/9e7b5a26-6c7a-42bb-a5f3-
+ 2f5081989904" />
 
 
