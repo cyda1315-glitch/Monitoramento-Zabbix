@@ -156,7 +156,6 @@ ls
 ### Deve aparecer:
 
 docker-compose.yml
-README.md
 
 ## levantar os Containers
 
