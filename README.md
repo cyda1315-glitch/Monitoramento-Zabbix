@@ -194,3 +194,24 @@ Os seguintes containers devem aparecer:
 
 → zabbix-server-agent
 
+
+---
+### 🤝 Agradecimentos
+
+---
+
+### 💙 Obrigado por acompanhar até aqui!
+
+Este projeto foi desenvolvido com o objetivo de consolidar e compartilhar conhecimento prático em redes Docker e monitoramento com Zabbix. 
+Qualquer feedback ou sugestão de melhoria via *Pull Request* ou *Issues* será muitíssimo bem-vindo!
+
+Se esse material foi útil para os seus estudos, apoie deixando uma ⭐️ no repositório!
+
+---
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/seu-usuario)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
+
+</div>
