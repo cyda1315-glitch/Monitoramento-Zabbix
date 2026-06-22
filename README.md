@@ -123,19 +123,6 @@ Interfaces (Agent):  → Endereço IP: 172.30.0.70   →  Porta: 10050
 
 ## Gateway (Roteador da Rede): 172.30.0.1
 
-zabbix-mysql → 172.30.0.10
-
-zabbix-server → 172.30.0.20
-
-zabbix-web →	172.30.0.30
-
-zabbix-agent2 →	172.30.0.40
-
-App1 →	172.30.0.50
-
-App2 →	172.30.0.60
-
-zabbix-server-agent → 172.30.0.70
 
 <img width="2528" height="1684" alt="Mapa de instrutura" src="https://github.com/user-attachments/assets/4edc5aac-572e-4939-b97d-2d0b42711af5" />
 
