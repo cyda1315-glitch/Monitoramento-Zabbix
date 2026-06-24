@@ -135,7 +135,7 @@ Interfaces (Agent):  → Endereço IP: 172.30.0.70   →  Porta: 10050
 git clone https://github.com/cyda1315-glitch/Monitoramento-Zabbix.git
 
 ## Entre na pasta:
-cd zabbix-cida
+cd Monitoramento-zabbix
 
 ## Verificar os Arquivos do Projeto
 
@@ -182,6 +182,18 @@ Os seguintes containers devem aparecer:
 → App2
 
 → zabbix-server-agent
+
+---
+
+# Acesso a interface na Web
+
+http://localhost:8080 ou https://localhost:9443
+
+## Dados de Login Padrão do Zabbix:
+
+Usuário padrão: Admin 
+
+Senha padrão: zabbix
 
 
 ---
