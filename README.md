@@ -192,7 +192,6 @@ Os seguintes containers devem aparecer:
 ### 💙 Obrigado por acompanhar até aqui!
 
 Este projeto foi desenvolvido com o objetivo de consolidar e compartilhar conhecimento prático em redes Docker e monitoramento com Zabbix. 
-Qualquer feedback ou sugestão de melhoria via *Pull Request* ou *Issues* será muitíssimo bem-vindo!
 
 ---
 
