@@ -1,5 +1,5 @@
 ## PROGRAMAÇÃO PARA REDES 
-### Aluna: Aparecida Cristina Silva
+### Alunos: Aparecida Cristina Silva e Lucas de figueiredo Gomes
   # TEMA
 # Monitoramento Zabbix - Docker compose 
  
